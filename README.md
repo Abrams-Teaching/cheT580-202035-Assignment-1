@@ -29,7 +29,10 @@ This assignment will test your installation of git, gcc, and Python using a few 
    ```
    The `10` command-line argument is a number of "generations" of a fractal curve called the Harter-Heighway Dragon that `hhd.c` will generate.  Note the name of the output file this execution generates.
 5. Run the python script `plot_dragon.py` according to its instructions.  Note the name of the image file generated.
-6. Upload your `my_gsl_output.dat` and your image of the generation-10 HH dragon to Drexel Learn's Assignment 1.
-
-1. Testing `gcc` and `gsl`
+6. Return your results by adding, committing, and pushing:
+   ```
+   $ git add .
+   $ git commit -m "My Assignment 1 Results"
+   $ git push
+   ```
    
