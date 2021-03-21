@@ -18,23 +18,24 @@ Cameron Abrams -- cfa22@drexel.edu
 int main ( int argc, char * argv[] ) {
   gsl_rng * r = gsl_rng_alloc(gsl_rng_mt19937);
   gsl_rng_set(r,5488);
+  FILE * fp = fopen("my_output.dat","w");
   int i;
   float sigma = 0.25;
   float mu = 4.0;  // you will use this with the code you add below
 
-  printf("Here are some random floats uniformly distributed on [0,1]:\n");
+  fprintf(fp,"Here are some random floats uniformly distributed on [0,1]:\n");
   for (i=0;i<10;i++) {
-    printf("%.3f\n",gsl_rng_uniform(r));
+    fprintf(fp,"%.3f\n",gsl_rng_uniform(r));
   }
 
-  printf("Here are some random ints uniformly picked from [0,%d]:\n",10);
+  fprintf(fp,"Here are some random ints uniformly picked from [0,%d]:\n",10);
   for (i=0;i<10;i++) {
-    printf("%ld\n",gsl_rng_uniform_int(r,10));
+    fprintf(fp,"%ld\n",gsl_rng_uniform_int(r,10));
   }
 
-  printf("Here are some floats drawn randomly from a Gaussian distribution with sigma=%.5f:\n",sigma);
+  fprintf(fp,"Here are some floats drawn randomly from a Gaussian distribution with sigma=%.5f:\n",sigma);
   for (i=0;i<10;i++) {
-    printf("%.3f\n",gsl_ran_gaussian(r,sigma));
+    fprintf(fp,"%.3f\n",gsl_ran_gaussian(r,sigma));
   }
 
   /* Add some lines of code to pull ten random integer samples out of a Poisson 
@@ -42,6 +43,7 @@ int main ( int argc, char * argv[] ) {
      Consult the GSL docs!
   */
   
-  printf("That's all!\n");
+  printf("Program ends. my_output.dat created.\n");
+  fclose(fp);
   gsl_rng_free(r);
 }
